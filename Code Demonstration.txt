@@ -1,0 +1,12 @@
+The final code significantly expands the starter code to implement a 4-key digital piano. Key changes include:
+
+1.DAC Upgrade: Expanded from 3-bit to 4-bit DAC (4 GPIO pins, values 0–15).
+2.Sine Table: Updated to 4-bit resolution (values 0–15) while maintaining 16 steps.
+3.Piano Keys: Added 4 input pins (D5, D8, D9, D10) for key presses, with polling logic.
+4.Timer Periods: Replaced fixed 100 Hz period with four note-specific periods (120, 106, 95, 80 µs).
+5.Timer API: Adopted new ESP32 timer API for configuration and ISR.
+6.Waveform Control: Added waveform Active flag to enable/disable output, with silence (DAC = 0) when no key is pressed.
+7.Main Logic: Implemented key polling, dynamic timer updates, and DAC clearing in loop().
+8.Debugging: Added Serial output for initialization and note tracking.
+
+These changes transformed the simple 100 Hz waveform generator into a functional 4-key digital piano capable of playing distinct musical notes.
